@@ -7,3 +7,6 @@ Cargo.lock
 *.pdb
 
 *.swp
+
+# The actual config file we use
+stag.toml
