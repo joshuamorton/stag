@@ -8,5 +8,6 @@ Cargo.lock
 
 *.swp
 
-# The actual config file we use
+# The actual config files we use
 stag.toml
+.spotify_token_cache.json

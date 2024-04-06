@@ -1,2 +1,3 @@
 client_id="averylongalphanumericstring"
 client_secret="anotheralphanumericstring"
+redirect_uri="example.com"
