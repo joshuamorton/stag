@@ -1,4 +1,12 @@
+
+# The spotify client id, from the dev console.
 client_id="averylongalphanumericstring"
+
+# The spotify client secret, from the dev console.
 client_secret="anotheralphanumericstring"
-redirect_uri="example.com"
+
+# An arbitrary redirect url, needs to be added to your app verbatim.
+redirect_uri="http://localhost:8888/redirect"
+
+# The name of the playlist used to sync with spotify.
 playlist_name = "STag Songs"
