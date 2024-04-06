@@ -8,4 +8,4 @@ edition = "2021"
 [dependencies]
 rusqlite = { version = "0.31.0", features = ["bundled"] }
 rspotify = { version = "0.13.1"}
-clap = {version = "4.5.4"}
+clap = {version = "4.5.4", features= ["derive"]}
