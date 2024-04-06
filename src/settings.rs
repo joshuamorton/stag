@@ -6,6 +6,7 @@ pub struct StagConfig {
     pub client_id: String,
     pub client_secret: String,
     pub redirect_uri: String,
+    pub playlist_name: String,
 }
 
 impl StagConfig {
