@@ -13,8 +13,8 @@ pub async fn init(cfg: &StagConfig) -> () {
         Ok(_) => println!("Db exists!"),
         Err(ref e) => println!("{}", e),
     }
+    let mut db = db.expect("This can't fail?");
     let tracks = spotify.get_tracks().await;
-    let db = db.expect("foo");
     for track in tracks.iter() {
         let v = db.add_song(&track);
         match v {

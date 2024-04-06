@@ -12,3 +12,4 @@ Cargo.lock
 stag.toml
 .spotify_token_cache.json
 stag.db
+stag

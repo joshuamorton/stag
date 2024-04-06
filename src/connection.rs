@@ -23,7 +23,12 @@ impl<'a> Conn<'_> {
         };
 
         let oauth = OAuth {
-            scopes: scopes!("playlist-read-private playlist-modify-private"),
+            scopes: scopes!(
+                "playlist-read-private
+                            playlist-modify-private 
+                            user-read-currently-playing
+                            "
+            ),
             redirect_uri: cfg.redirect_uri.clone(),
             ..Default::default()
         };
@@ -106,5 +111,20 @@ impl<'a> Conn<'_> {
                 }
             });
         items.collect::<Vec<_>>().await
+    }
+    pub async fn get_now_playing(&self) -> FullTrack {
+        let pl = self
+            .client
+            .current_user_playing_item()
+            .await
+            .unwrap()
+            .unwrap()
+            .item
+            .unwrap();
+        let t = match pl {
+            PlayableItem::Track(t) => Some(t),
+            PlayableItem::Episode(_e) => None,
+        };
+        t.unwrap()
     }
 }
