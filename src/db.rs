@@ -1,7 +1,7 @@
 use crate::settings::StagConfig;
 use rspotify::model::track::FullTrack;
-use rusqlite::{Connection, Error, Error::QueryReturnedNoRows, Result};
 use rspotify::prelude::Id;
+use rusqlite::{Connection, Error, Result};
 
 const CREATE: &str = "
 BEGIN;
@@ -41,7 +41,12 @@ impl Handler {
         let mut stmt = self.c.prepare_cached(ADD_SONG)?;
         let id = track.id.as_ref().unwrap();
         let artist = &track.artists.first().unwrap().name;
-        stmt.execute((id.id(), &track.name, artist, track.duration.num_milliseconds()))?;
+        stmt.execute((
+            id.id(),
+            &track.name,
+            artist,
+            track.duration.num_milliseconds(),
+        ))?;
         return Result::Ok(());
     }
 }

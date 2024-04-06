@@ -1,6 +1,6 @@
 use crate::settings::StagConfig;
 use futures::stream::{StreamExt, TryStreamExt};
-use futures::Stream;
+
 use rspotify::clients::BaseClient;
 use rspotify::clients::OAuthClient;
 use rspotify::model::playlist::{PlaylistTracksRef, SimplifiedPlaylist};
@@ -102,7 +102,7 @@ impl<'a> Conn<'_> {
             .filter_map(|pl| async {
                 match pl {
                     PlayableItem::Track(t) => Some(t),
-                    PlayableItem::Episode(e) => None,
+                    PlayableItem::Episode(_e) => None,
                 }
             });
         items.collect::<Vec<_>>().await
