@@ -1,5 +1,6 @@
 use clap::{Args, Parser, Subcommand};
 
+mod connection;
 mod init;
 mod settings;
 
@@ -32,6 +33,6 @@ async fn main() {
         )
     });
     match &cli.command {
-        Commands::Init(_) => init::init(cfg).await,
+        Commands::Init(_) => init::init(&cfg).await,
     }
 }
