@@ -11,3 +11,4 @@ Cargo.lock
 # The actual config files we use
 stag.toml
 .spotify_token_cache.json
+stag.db

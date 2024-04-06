@@ -1,6 +1,7 @@
 use clap::{Args, Parser, Subcommand};
 
 mod connection;
+mod db;
 mod init;
 mod settings;
 

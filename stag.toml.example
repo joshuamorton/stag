@@ -10,3 +10,6 @@ redirect_uri="http://localhost:8888/redirect"
 
 # The name of the playlist used to sync with spotify.
 playlist_name = "STag Songs"
+
+# The sqlite db path
+db_path = "./stag.db"
